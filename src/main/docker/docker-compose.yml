@@ -1,0 +1,6 @@
+version: '2'
+services:
+  springBoot:
+    image: latest:latest
+    ports:
+      - "8080:8080"

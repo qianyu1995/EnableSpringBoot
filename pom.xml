@@ -78,39 +78,25 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <!-- tag::plugin[] -->
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>0.4.13</version>
-                <configuration>
-                    <imageName>test</imageName>
-                    <dockerDirectory>src/main/docker</dockerDirectory>
-                    <dockerHost>http://192.168.135.161:2375</dockerHost>
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
-
-                </configuration>
-            </plugin>
-            <!-- end::plugin[] -->
         </plugins>
 
         <resources>
+            <!--排除docker文件-->
             <resource>
                 <directory>src/main/docker</directory>
-                <filtering>true</filtering>
                 <excludes>
-                    <exclude>src/main/docker</exclude>
+                    <exclude>*</exclude>
                 </excludes>
             </resource>
 
+            <!--加载配置文件-->
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>*</include>
+                </includes>
+            </resource>
         </resources>
     </build>
-
 
 </project>

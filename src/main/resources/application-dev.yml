@@ -5,7 +5,7 @@ spring:
       max-file-size: 100MB
       max-request-size: 100MB
   application:
-    name: MySentinel
+    name: springBoot
   #sentinel
   cloud:
     sentinel:
@@ -19,7 +19,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: chen1995210
-    url: jdbc:mysql://localhost:3306/angel
+    url: jdbc:mysql://192.168.99.31:3306/angel
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       # 连接池配置
